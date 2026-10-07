@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Markform Studio — thoughtful logo design and brand identity by Teagan Wan." />
+  <title>Markform Studio — Logo Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c0c0b;
+      --bg-elevated: #141412;
+      --bg-card: #1a1a17;
+      --border: rgba(255, 248, 235, 0.08);
+      --border-strong: rgba(255, 248, 235, 0.14);
+      --text: #f5f0e8;
+      --text-muted: #9a9488;
+      --accent: #e8c47a;
+      --accent-soft: rgba(232, 196, 122, 0.12);
+      --accent-hover: #f0d496;
+      --success: #8fbc8f;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --font-sans: "Instrument Sans", system-ui, -apple-system, sans-serif;
+      --font-serif: "Instrument Serif", Georgia, serif;
+      --max: 1120px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Subtle grain overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; color: inherit; }
+
+    .wrap {
+      width: min(100% - 2.5rem, var(--max));
+      margin-inline: auto;
+    }
+
+    /* —— Nav —— */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(12, 12, 11, 0.75);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1.5rem;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-mark svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: color 0.2s var(--ease);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: #1a1508 !important;
+      font-weight: 600;
+      font-size: 0.8125rem !important;
+      border-radius: 999px;
+      transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      padding: 0.45rem 0.6rem;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      margin: 4px 0;
+      border-radius: 1px;
+    }
+
+    /* —— Hero —— */
+    .hero {
+      position: relative;
+      padding: clamp(4.5rem, 12vw, 8.5rem) 0 clamp(4rem, 10vw, 7rem);
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: min(55vw, 520px);
+      height: min(55vw, 520px);
+      background: radial-gradient(circle, rgba(232, 196, 122, 0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 0.1s forwards;
+    }
+
+    .hero-eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.75rem, 7vw, 4.75rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      max-width: 14ch;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 0.2s forwards;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-lead {
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 38ch;
+      margin-bottom: 2.25rem;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 0.35s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 0.45s forwards;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.2s var(--ease), border-color 0.2s var(--ease);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1a1508;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-strong);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--text-muted);
+      background: rgba(255, 248, 235, 0.03);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 0.55s forwards;
+    }
+
+    .hero-meta dt {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-meta dd {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* —— Section shared —— */
+    section {
+      padding: clamp(4rem, 9vw, 6.5rem) 0;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 42ch;
+      font-size: 1.05rem;
+      margin-bottom: 2.75rem;
+    }
+
+    .section-header {
+      margin-bottom: 2.75rem;
+    }
+
+    /* —— Services —— */
+    .services {
+      background: var(--bg-elevated);
+      border-block: 1px solid var(--border);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.75rem 1.9rem;
+      transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+
+    .service-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-soft);
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+      color: var(--accent);
+    }
+
+    .service-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* —— Work —— */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .work-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+
+    .work-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
+    }
+
+    .work-mark {
+      aspect-ratio: 1 / 0.85;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, #161612 0%, #0f0f0d 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem;
+    }
+
+    .work-mark svg {
+      width: min(48%, 110px);
+      height: auto;
+      transition: transform 0.4s var(--ease);
+    }
+
+    .work-card:hover .work-mark svg {
+      transform: scale(1.06);
+    }
+
+    .work-info {
+      padding: 1.15rem 1.35rem 1.35rem;
+    }
+
+    .work-info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.2rem;
+    }
+
+    .work-info p {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* —— Contact —— */
+    .contact {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+
+    .contact-aside p {
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-size: 1.05rem;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1.05rem;
+      transition: color 0.2s var(--ease);
+    }
+
+    .contact-email:hover {
+      color: var(--accent-hover);
+    }
+
+    .contact-note {
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 4vw, 2.25rem);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-card .btn-primary {
+      width: 100%;
+      margin-top: 0.35rem;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+
+    .form-success.is-visible {
+      display: block;
+    }
+
+    .form-card.is-submitted .form-fields {
+      display: none;
+    }
+
+    .success-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1.25rem;
+      background: rgba(143, 188, 143, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--success);
+    }
+
+    .form-success h3 {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p {
+      color: var(--text-muted);
+      max-width: 28ch;
+      margin-inline: auto;
+    }
+
+    /* —— Footer —— */
+    .footer {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* —— Animations —— */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+
+    .reveal.is-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* —— Responsive —— */
+    @media (max-width: 860px) {
+      .services-grid,
+      .work-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 1.75rem, var(--max)); }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(12, 12, 11, 0.97);
+        border-bottom: 1px solid var(--border);
+        padding: 0.5rem 1.75rem 1.25rem;
+      }
+
+      .nav-links.is-open { display: flex; }
+
+      .nav-links li { border-top: 1px solid var(--border); }
+
+      .nav-links a {
+        display: block;
+        padding: 0.9rem 0;
+        color: var(--text);
+      }
+
+      .nav-cta {
+        display: inline-flex;
+        width: fit-content;
+        margin-top: 0.5rem;
+      }
+
+      .nav-toggle { display: block; }
+
+      .services-grid,
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta { gap: 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="logo-mark" aria-label="Markform Studio home">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="28" height="28" rx="7" stroke="#e8c47a" stroke-width="1.5"/>
+          <path d="M9 22V10l7 9 7-9v12" stroke="#e8c47a" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Markform Studio
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact" class="nav-cta">Start a project</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero-eyebrow">Logo design studio</p>
+        <h1>Marks that feel <em>inevitable</em>.</h1>
+        <p class="hero-lead">
+          Markform Studio crafts thoughtful logos and brand systems for companies that care how they show up in the world.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Start a project</a>
+          <a href="#work" class="btn btn-ghost">View sample work</a>
+        </div>
+        <dl class="hero-meta">
+          <div>
+            <dt>Founded by</dt>
+            <dd>Teagan Wan</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>Logo &amp; identity</dd>
+          </div>
+          <div>
+            <dt>Approach</dt>
+            <dd>Clarity over clutter</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="section-header reveal">
+          <p class="section-label">Services</p>
+          <h2 class="section-title">What we design</h2>
+          <p class="section-desc">Focused offerings for brands that need a mark with staying power—not a trend that fades.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+              </svg>
+            </div>
+            <h3>Logo design</h3>
+            <p>Original wordmarks, monograms, and symbols developed through research, sketching, and refined digital exploration.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+              </svg>
+            </div>
+            <h3>Brand identity</h3>
+            <p>Color, typography, and supporting elements that extend your logo into a cohesive visual language.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 14l6-6 4 4 6-6"/><path d="M14 8h6v6"/>
+              </svg>
+            </div>
+            <h3>Redesigns</h3>
+            <p>Respectful evolutions of existing marks—keeping equity where it works, sharpening what no longer does.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+              </svg>
+            </div>
+            <h3>Usage guidelines</h3>
+            <p>Clear rules for spacing, color, and misuse so your logo stays consistent across every touchpoint.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work">
+      <div class="wrap">
+        <div class="section-header reveal">
+          <p class="section-label">Selected concepts</p>
+          <h2 class="section-title">Sample marks</h2>
+          <p class="section-desc">Original geometric concepts for fictional brands—illustrative of the studio’s craft, not client work.</p>
+        </div>
+        <div class="work-grid">
+          <!-- 1. Northveil -->
+          <article class="work-card reveal">
+            <div class="work-mark">
+              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <path d="M60 18L98 90H22L60 18Z" stroke="#e8c47a" stroke-width="3.5" stroke-linejoin="round"/>
+                <circle cx="60" cy="68" r="10" fill="#e8c47a"/>
+              </svg>
+            </div>
+            <div class="work-info">
+              <h3>Northveil</h3>
+              <p>Outdoor apparel · Symbol</p>
+            </div>
+          </article>
+          <!-- 2. Lumora -->
+          <article class="work-card reveal">
+            <div class="work-mark">
+              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <circle cx="60" cy="60" r="38" stroke="#c4b5a0" stroke-width="3"/>
+                <circle cx="60" cy="60" r="18" stroke="#e8c47a" stroke-width="3.5"/>
+                <path d="M60 22v16M60 82v16M22 60h16M82 60h16" stroke="#c4b5a0" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="work-info">
+              <h3>Lumora</h3>
+              <p>Lighting studio · Emblem</p>
+            </div>
+          </article>
+          <!-- 3. Aether & Co -->
+          <article class="work-card reveal">
+            <div class="work-mark">
+              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <rect x="28" y="28" width="64" height="64" rx="8" stroke="#e8c47a" stroke-width="3.5"/>
+                <path d="M44 72V48l16 18 16-18v24" stroke="#f5f0e8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="work-info">
+              <h3>Aether &amp; Co</h3>
+              <p>Architecture · Monogram</p>
+            </div>
+          </article>
+          <!-- 4. Driftline -->
+          <article class="work-card reveal">
+            <div class="work-mark">
+              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <path d="M20 70c16-28 28-28 40 0s24 28 40 0" stroke="#e8c47a" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M20 52c16-28 28-28 40 0s24 28 40 0" stroke="#c4b5a0" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+              </svg>
+            </div>
+            <div class="work-info">
+              <h3>Driftline</h3>
+              <p>Sailing club · Wordmark accent</p>
+            </div>
+          </article>
+          <!-- 5. Kiln & Clay -->
+          <article class="work-card reveal">
+            <div class="work-mark">
+              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <ellipse cx="60" cy="78" rx="32" ry="12" stroke="#c4b5a0" stroke-width="2.5"/>
+                <path d="M28 78V48c0-18 14-30 32-30s32 12 32 30v30" stroke="#e8c47a" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M48 48h24" stroke="#f5f0e8" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="work-info">
+              <h3>Kiln &amp; Clay</h3>
+              <p>Ceramics · Pictorial mark</p>
+            </div>
+          </article>
+          <!-- 6. Vertex Labs -->
+          <article class="work-card reveal">
+            <div class="work-mark">
+              <svg viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <path d="M60 22L98 44v32L60 98 22 76V44L60 22Z" stroke="#e8c47a" stroke-width="3.5" stroke-linejoin="round"/>
+                <path d="M60 46L78 56v20L60 86 42 76V56L60 46Z" stroke="#f5f0e8" stroke-width="2.5" stroke-linejoin="round" opacity="0.85"/>
+              </svg>
+            </div>
+            <div class="work-info">
+              <h3>Vertex Labs</h3>
+              <p>Research · Geometric mark</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-layout">
+          <div class="contact-aside reveal">
+            <p class="section-label">Contact</p>
+            <h2 class="section-title">Let’s make a mark</h2>
+            <p>Tell us about your project. We’ll reply within a few business days with next steps and timing.</p>
+            <a class="contact-email" href="mailto:hello@markform.studio">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/>
+              </svg>
+              hello@markform.studio
+            </a>
+            <p class="contact-note">Owned by Teagan Wan · Based wherever good ideas land.</p>
+          </div>
+          <div class="form-card reveal" id="formCard">
+            <form class="form-fields" id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your name" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@company.com" />
+              </div>
+              <div class="form-group">
+                <label for="notes">Project notes</label>
+                <textarea id="notes" name="notes" required placeholder="What are you looking for? Timeline, goals, anything helpful…"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send inquiry</button>
+            </form>
+            <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+              <div class="success-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+              </div>
+              <h3>Thanks for reaching out</h3>
+              <p>Your message has been noted. We’ll be in touch soon at the email you provided.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p><strong>Markform Studio</strong> · Thoughtful logo design</p>
+      <p>© 2026 Teagan Wan</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Mobile nav
+      var toggle = document.getElementById("navToggle");
+      var links = document.getElementById("navLinks");
+      if (toggle && links) {
+        toggle.addEventListener("click", function () {
+          var open = links.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+          toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        });
+        links.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            links.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.setAttribute("aria-label", "Open menu");
+          });
+        });
+      }
+
+      // Form: front-end confirmation only
+      var form = document.getElementById("contactForm");
+      var card = document.getElementById("formCard");
+      var success = document.getElementById("formSuccess");
+      if (form && card && success) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+          card.classList.add("is-submitted");
+          success.classList.add("is-visible");
+        });
+      }
+
+      // Scroll reveal
+      var reveals = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-in");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.1 }
+        );
+        reveals.forEach(function (el) { io.observe(el); });
+      } else {
+        reveals.forEach(function (el) { el.classList.add("is-in"); });
+      }
+    })();
+  </script>
+</body>
+</html>
